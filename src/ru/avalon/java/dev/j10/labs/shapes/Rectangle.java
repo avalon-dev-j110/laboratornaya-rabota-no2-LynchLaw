@@ -19,7 +19,7 @@ public class Rectangle implements Shape {
     private float[] first;
     private float[] second;
 
-    public Rectangle(float x1, float y1, float x2, float y2) throws IllegalArgumentException{
+    public Rectangle(float x1, float y1, float x2, float y2){
         if(x1 == x2 || y1 == y2) throw new IllegalArgumentException("Такие координаты не задают прямоугольник");
         this.first = new float[] {x1, y1};
         this.second = new float[] {x2, y2};

@@ -31,21 +31,26 @@ public class Application {
          *    статический метод в текущем классе (Main).
          */
 
-        shapes = new Shape[]{
-                new Triangle(2, 4, 3, -6, 7, 8),
-                new Rectangle(1, 6, 6, 2),
-                new Circle(5),
-                new Triangle(5, 4, 13, 6, 7, 8),
-                new Rectangle(1, 6, 6, 12),
-                new Circle(2),
-                new Triangle(0, 4, 3, 0, 7, 18),
-                new Rectangle(1, 16, 6, 2),
-                new Circle(15),
-                new Circle(4),
-        };
+        try{
+            shapes = new Shape[]{
+                    new Triangle(2, 4, 3, -6, 7, 8),
+                    new Rectangle(1, 6, 6, 2),
+                    new Circle(5),
+                    new Triangle(5, 4, 13, 6, 7, 8),
+                    new Rectangle(1, 6, 6, 12),
+                    new Circle(2),
+                    new Triangle(0, 4, 3, 0, 7, 18),
+                    new Rectangle(1, 16, 6, 2),
+                    new Circle(15),
+                    new Circle(4),
+            };
 
-        findMaxSquare(shapes);
+            findMaxSquare(shapes);
+            System.out.println(maxSquareShape.getArea());
+        }
+        catch (Exception ex){
+            System.out.println(ex.toString());
+        }
 
-        System.out.println(maxSquareShape.getArea());
     }
 }
