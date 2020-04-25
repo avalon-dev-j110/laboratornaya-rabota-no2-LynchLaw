@@ -24,32 +24,38 @@ public class Triangle implements Shape {
      * 2. Реализуйте все абстрактные методы.
      */
 
-    private float[] first;
-    private float[] second;
-    private float[] third;
+    private Point first;
+    private Point second;
+    private Point third;
 
     public Triangle(float x1, float y1, float x2, float y2, float x3, float y3){
-        if (x1 == x2 && y1 == y2 ||
-            x2 == x3 && y2 == y3 ||
-            x1 == x3 && y1 == y3) throw new IllegalArgumentException("Точки треугольника совпадают");
-        this.first = new float[] {x1, y1};
-        this.second = new float[] {x2, y2};
-        this.third = new float[] {x3, y3};
+        first = new PointInfo(x1, y1);
+        second = new PointInfo(x2, y2);
+        third = new PointInfo(x3, y3);
+    }
 
+    private float sideLength(Point first, Point second){
+        float x1 = first.getX();
+        float x2 = second.getX();
+
+        float y1 = first.getY();
+        float y2 = second.getY();
+
+        double length = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+
+        return (float)length;
     }
 
     @Override
     public float getArea() {
-        float dif1 = this.second[1] - this.third[1];
-        float dif2 = this.third[1] - this.first[1];
-        float dif3 = this.first[1] - this.second[1];
+        float a = sideLength(first, second);
+        float b = sideLength(second, third);
+        float c = sideLength(first, third);
 
-        float x1 = this.first[0];
-        float x2 = this.second[0];
-        float x3 = this.third[0];
+        float p = (a + b + c) / 2;
 
-        float res = (x1 * dif1 + x2 * dif2 + x3 * dif3) / 2;
+        double res = Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
-        return res;
+        return (float)res;
     }
 }

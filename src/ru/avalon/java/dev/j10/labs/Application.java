@@ -6,13 +6,13 @@ import ru.avalon.java.dev.j10.labs.shapes.Shape;
 import ru.avalon.java.dev.j10.labs.shapes.Triangle;
 
 public class Application {
-    public static Shape maxSquareShape;
-
-    public static void findMaxSquare(Shape[] shapes){
+    public static Shape findMaxSquare(Shape[] shapes){
+        Shape maxSquareShape = null;
         for(Shape n : shapes){
             if(maxSquareShape == null) maxSquareShape = n;
             else if(maxSquareShape.getArea() < n.getArea()) maxSquareShape = n;
         }
+        return maxSquareShape;
     }
 
     public static void main(String[] args) {
@@ -45,7 +45,7 @@ public class Application {
                     new Circle(4),
             };
 
-            findMaxSquare(shapes);
+            Shape maxSquareShape = findMaxSquare(shapes);
             System.out.println(maxSquareShape.getArea());
         }
         catch (Exception ex){
