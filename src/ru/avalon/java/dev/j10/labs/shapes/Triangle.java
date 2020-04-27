@@ -16,7 +16,7 @@ import java.nio.channels.Pipe;
  *
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B5%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA">Треугольник</a>
  */
-public class Triangle implements Shape {
+public class Triangle implements Polygon {
 
     /*
      * TODO: Реализовать класс 'Triangle'
@@ -57,5 +57,14 @@ public class Triangle implements Shape {
         double res = Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
         return (float)res;
+    }
+
+    @Override
+    public float getPerimeter() {
+        float a = sideLength(first, second);
+        float b = sideLength(second, third);
+        float c = sideLength(first, third);
+
+        return (a + b + c);
     }
 }
